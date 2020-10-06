@@ -1,0 +1,61 @@
+{
+	"base": [
+				{"nivel1":"tortuga","nivel2":"queratina"},
+				{"nivel1":"gallo","nivel2":"queratina"},
+				{"nivel1":"cocodrilo","nivel2":"queratina"},
+				{"nivel1":"iguana","nivel2":"queratina"},
+				
+				
+				{"nivel1":"gato","nivel2":"gm"},
+				{"nivel1":"oso","nivel2":"gm"},
+				{"nivel1":"ballena","nivel2":"gm"},
+				{"nivel1":"delfin","nivel2":"gm"},
+				
+				
+				{"nivel1":"queratina","nivel2":"oviparo"},
+				{"nivel1":"oviparo","nivel2":"sauropsido"},
+				{"nivel1":"sauropsido","nivel2":"tetrapodo"},
+				
+				
+				{"nivel1":"gm","nivel2":"viviparo"},
+				{"nivel1":"viviparo","nivel2":"mamalia"},
+				{"nivel1":"mamalia","nivel2":"tetrapodo"},
+				
+				{"nivel1":"tetrapodo","nivel2":"vertebrado"}
+				
+				{"nivel3":"tortuga","nivel4":"queratina","nivel5":"1"},
+				{"nivel3":"tortuga","nivel4":"agua","nivel5":"2"},
+				{"nivel3":"tortuga","nivel4":"tierra","nivel5":"2"},
+				
+				{"nivel3":"gallo","nivel4":"queratina","nivel5":"1"},
+				{"nivel3":"gallo","nivel4":"garras","nivel5":"1"},
+				{"nivel3":"gallo","nivel4":"tierra","nivel5":"2"},
+				
+				{"nivel3":"cocodrilo","nivel4":"queratina","nivel5":"1"},
+				{"nivel3":"cocodrilo","nivel4":"garras","nivel5":"1"},
+				{"nivel3":"cocodrilo","nivel4":"tierra","nivel5":"2"},
+				{"nivel3":"cocodrilo","nivel4":"agua","nivel5":"2"},
+				
+				{"nivel3":"iguana","nivel4":"queratina","nivel5":"1"},
+				{"nivel3":"iguana","nivel4":"garras","nivel5":"1"},
+				{"nivel3":"iguana","nivel4":"tierra","nivel5":"2"},
+				
+				{"nivel3":"gato","nivel4":"pelo","nivel5":"1"},
+				{"nivel3":"gato","nivel4":"G. mamarias","nivel5":"1"},
+				{"nivel3":"gato","nivel4":"tierra","nivel5":"2"},
+				
+				{"nivel3":"oso","nivel4":"pelo","nivel5":"1"},
+				{"nivel3":"oso","nivel4":"G. mamarias","nivel5":"1"},
+				{"nivel3":"oso","nivel4":"tierra","nivel5":"2"},
+				
+				{"nivel3":"ballena","nivel4":"agua","nivel5":"2"},
+				{"nivel3":"ballena","nivel4":"G. mamarias","nivel5":"1"},
+				
+
+				{"nivel3":"delfin","nivel4":"agua","nivel5":"2"},
+				{"nivel3":"delfin","nivel4":"G. mamarias","nivel5":"1"}
+		]
+}
+
+	
+
