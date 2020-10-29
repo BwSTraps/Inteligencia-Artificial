@@ -1,0 +1,16 @@
+{
+	"Tweets" : [
+	
+		{"Stream":true,  "texto":"A POR LAS WINS"},
+		{"Stream":true, "texto":"MI SOBRINO JUEGA WARZONE"},
+		{"Stream":true,  "texto":"Colaboracion con Neo el Uruguayo"},
+		{"Stream":true, "texto":"WINS en MODO NOCTURNO con SEGUIDORES"},
+		{"Stream":true, "texto":"Dia de SEGUIDORES"},
+		{"Stream":true, "texto":"TRATANDO de SCAR la WIN en SOLOS vs DUOS"},
+		{"Stream":true, "texto":"Top #1 Mexico WIN"},
+		{"Stream":true, "texto":"MANQUEANDO CON SEGUIDORES"},
+		{"Stream":false, "texto":"Estas son las Configuraciones de mis Clases, hay COSPLAYS"},
+		{"Stream":false, "texto":"Etiquétenme sus videos, COSPLAYS"},
+		{"Stream":false, "texto":"Dale corazon para mas COSPLAYS como este"}
+	]
+	}
