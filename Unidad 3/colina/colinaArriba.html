@@ -1,0 +1,109 @@
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=hOPawnEdLQ0cB9NQhOXW2Ut2_RzEzo-rj6b0vvRG_vKcq9xGC4JsaRTrTrkGwDw2UmBG1SHaKxMVw1OjEi-1v_zvNX2PyxiXsGwAkdJ6pVN01aA602jbPYKNUtKQzGhLfecKzgG7yu3St8QPAj6H2rhBxPnTxVCGlJcgkZm45AkKC6Ze6azL_lupRGb_8mSG6r3Ajvkk_Vrtn-gJ1rUrUBx63H23Nxq2y8JD_tqpXGL5evJ93Xg1H_AEF0MyIH-IABkpV9T5qjkDsGY4jUzJhRd6XW4iyFj_oGu1a1-djm-dFRGPTmaD3SLbPsZNZAb8LC16t6630ydTv_54RVtFGQoHtfHHtji4J35MA3nrQ19MV77qb_U_uN7y_x2IWAeJoUn7FVFHLLf4ICB7b4t2uLUGQdAJ3AYT2FeyXe1v9P4SsskBP-yX48EkwFDOoWqosO6M7wjGx6jObHSS3Dh9CxxDhREMubjGgWiMc8PLZyE" charset="UTF-8"></script><script>
+
+
+    function traerDatos() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "datosColina.json", true);
+        xhttp.send();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                datos = JSON.parse(this.responseText);
+                var col = datos['colina'];
+                contadorRepeticiones = 0;
+                ciclado = false;
+                palabra = []
+                inicio = "a"
+                final = "l"
+                llegar = true;
+                var x;
+                cont = 0
+
+
+                while (llegar == true) {
+
+                    console.log(inicio);
+                    sigpaso = []
+
+                    col.forEach(function (fila) {
+                        if (inicio == fila[0]) {
+                            x = [fila[1], fila[2]];
+                            sigpaso.push(x)
+                        }
+                    });
+                    console.log(sigpaso);
+                    var compara = sigpaso[0][1];
+                    diferentes = false;
+
+
+                    sigpaso.forEach(function (fila) {
+                        if (compara != fila[1]) {
+                            diferentes = true;
+                        }
+                    });
+
+                    listanumero = []
+
+                    sigpaso.forEach(function (fila) {
+                        listanumero.push(fila[1])
+                    });
+
+                    console.log(listanumero);
+
+
+                    if (ciclado == false) {
+                        resistencia = Math.max(...listanumero);
+                        console.log("+")
+                    }
+                    else {
+                        resistencia = Math.min(...listanumero);
+                    }
+
+                    indice = listanumero.indexOf(resistencia);
+                    cambio = sigpaso[indice]
+
+                    console.log(cambio)
+
+                    if (diferentes == true) {
+                        avanzar = cambio[0];
+                        inicio = avanzar;
+                        console.log(inicio)
+                    }
+                    if (diferentes == false) {
+
+                        numero = Math.floor(Math.random() * (((sigpaso.length)) - 0)) + 0;
+                        avanzar = sigpaso[numero][0];
+
+                        inicio = avanzar;
+                    }
+                    console.log(inicio)
+                    cont = cont + 1;
+                    if (inicio == final) {
+                        llegar = false;
+                    }
+
+                    palabra.push(inicio)
+                    noRepetir = [...new Set(palabra)];
+                    console.log(palabra)
+                    console.log(noRepetir)
+
+                    for (var nr = 0; nr < noRepetir.length; nr++) {
+                        for (var pa = 0; pa < palabra.length; pa++) {
+                            if (noRepetir[nr] == palabra[pa]) {
+                                contadorRepeticiones = contadorRepeticiones + 1;
+                            }
+                        }
+
+                        if (contadorRepeticiones > 4) {
+                            ciclado = true
+                        }
+                        contadorRepeticiones = 0
+                    }
+                    console.log(ciclado)
+                }
+            }
+        };
+    }
+    traerDatos();
+
+
+</script>

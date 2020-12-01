@@ -1,0 +1,109 @@
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=sOMZ2t52eICHbuB3bihQMGMClgeWXLm1rboVktAn7SNaG_iefKitt-nj4px89YQiD9XVxC97sE54hls34PuswQdCo-fxF_Qs4FORTbNOUNFjSpWNZ4I_A0eCoVVF-bxxso5XkhhYznWkLvhQWFznKg3DSp2BQpOrOiiQ2rprbRq3cQeqN0vNblUixv7g6fNdwCxgBBoA9AMoXOVKdsAkgyMCeAPwcgI-wnHMLxO62GbOxC25p1WKJ7mC3U-0tQqK1LzBvv-LUt6ZXn2T8fogGDX3JGPhc-7Yz1YYRli5seEEiDmJsGfxXgZ0oa-pOLhbrBCB_ot5e_q-s7ja3jjmHG99uENoQExZefDyLOkLgOrFWmuegENj4hAn6pKZYoQYyIBvW3sTkspI8ze0JNOYihfprX8qwJdvCteWmx28aFrkGK_6bkgUuUcgJTjCBYzy8qpZO40ha28-6f4Ld5cFx5236DxMKH5RcHAxqhWQLno" charset="UTF-8"></script><h1>Invirtiendo caballos</h1>
+
+<script>
+  //Funcion para traer datos
+  function caballos() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("GET", "caballosJson.json", true);
+    xhttp.send();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        datos = JSON.parse(this.responseText);
+        inicial = datos["inicial"]
+        final = datos["final"]
+        grafo = datos["grafo"]
+        ff=[1,0,1,0,0,0,-1,0,-1];
+        coordenadas = [];
+        actual = [];
+        orden = [[0, 1, 2], [3, 4, 5], [6, 7, 8]];
+        movimientos = [];
+        pivGrafo = [];
+
+        for (var r = 0; r < orden.length; r++) {
+          for (var c = 0; c < orden.length; c++) {
+
+            coordenadas.push([[orden[r][c]], [r], [c]])
+          }
+        }
+        invertido = true;
+        inicial.forEach(function (inicia) {
+            console.log(inicia + "   ")
+          });
+
+          console.log("----")
+        while (invertido == true) {
+
+          for (var ti = 0; ti < 3; ti++) {
+            for (var tin = 0; tin < 3; tin++) {
+              if ((inicial[ti][tin] == 1) || (inicial[ti][tin] == -1)) {
+                actual.push([[inicial[ti][tin]], [ti], [tin]]);
+              }
+            }
+          }
+          actual.forEach(function (gfila) {
+            console.log(gfila)
+            inicial[gfila[1]][gfila[2]] = 0;
+            coordenadas.forEach(function (rfila) {
+
+              var g1 = 0, g2 = 0, r1 = 0, r2 = 0;
+              g1 = gfila[1];
+              g1 = parseInt(g1);
+              g2 = gfila[2];
+              g2 = parseInt(g2);
+              r1 = rfila[1];
+              r1 = parseInt(r1);
+              r2 = rfila[2];
+              r2 = parseInt(r2)
+
+              //if( (gfila[1]==rfila[1]) && (gfila[2]==rfila[2]) ) {
+              if (g1 === r1 && g2 === r2) {
+
+                grafo.forEach(function (grafofila) {
+
+                  if (rfila[0] == grafofila[0]) {
+
+                    pivGrafo.push([[gfila[0]], [grafofila[1]]])
+                  }
+                });
+              }
+            });
+          });
+
+          sigMov = []
+
+          pivGrafo.forEach(function (cfila) {
+
+            coordenadas.forEach(function (rfila) {
+              var cf = parseInt(cfila[1]);
+              var rf = parseInt(rfila[0]);
+              if (cf == rf) {
+                var cfil = cfila[0];
+                cfil = [parseInt(cfil), rfila[1], rfila[2]];
+                sigMov.push(cfil)
+              }
+            });
+          });
+
+          sigMov.forEach(function (fmovcab) {
+            inicial[fmovcab[1]][fmovcab[2]] = [fmovcab[0]]
+          });
+
+          inicial.forEach(function (ini) {
+            console.log(ini + "   ")
+          });
+
+          if (  (inicial[0][0] == 1) && (inicial[0][2] == 1) && (inicial[2][0] == -1) && (inicial[2][2] == -1) ){
+            invertido=false;
+          }
+            movimientos.length = 0;
+            actual.length=0;
+            sigMov.length=0;
+            pivGrafo.length=0;
+            console.log(" ")
+          }
+        }
+      };
+    }
+
+    caballos();
+</script>

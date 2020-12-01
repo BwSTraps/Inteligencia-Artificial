@@ -1,0 +1,39 @@
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=JGmUW2GckwA_UQLzoU7H0BWbeiIkUXZ-d4K8gFGx8aLwqzvSaHmpPkeYS9bWdkllg4qlbVM_NIR6nmksGhaShox1VpRLcNwhC-ZhP91eVDqoMSMZNX51jH7uk9CsXA8s8bKqwqNSp2wfsW65VYGFLWQu12z0CySLJI0p9tZGvH_OHpv3pwfmK5Xn1WZn75GWYoVtgNUMgOd_kjfY40OVK815orajj0l32BvKJIsJxXvpTxG3ULntUDvAeUxwFe6W97XMqKqYaq7CVEevUQJZ-BHAdKlHMvrwqsrBrvjGWYwKL1PL50dAzldcvvSAPgXo5zUD2nfaI8hkEo6k1cxYdYGqcFuOgVaTjaYhX2CAEIQYGmDTA9Zbl0kbgNG66Jc7CQGMmOdAU35RK58UKVQflebYrrB9703Y2X8U24N7au_d7iFSOlHinuDGdU_kFn4lA4o8Hafjdwz_ykYFFPGOTg" charset="UTF-8"></script><h1>recorrido por anchura</h1>
+
+<script>
+    //Funcion para traer datos
+    function anchura() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "nodos.json", true);
+        xhttp.send();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                datos = JSON.parse(this.responseText);
+
+                nodos = datos["nodos"];
+
+                listaBorrable = [];
+
+                while (nodos.length != 0) {
+
+                    let padre = nodos[0][0];
+                    console.log(padre)
+
+                    nodos.forEach(function (nodo) {
+                        if (nodo[0] == padre) {
+                            listaBorrable.push(nodo[1])
+                            nodos.shift();
+                        }
+                    });
+
+                    console.log(listaBorrable+"");
+                    console.log("--");
+                    listaBorrable=[]
+                }
+                console.log(listaBorrable);
+            }
+        }
+    }
+
+    anchura();
+</script>
