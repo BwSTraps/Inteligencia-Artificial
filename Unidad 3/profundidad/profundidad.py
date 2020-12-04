@@ -1,6 +1,6 @@
 import json
 from sys import exit
-def profundidad(x,y):
+def profundidad(y):
     with open ("recorrido.json", "r") as read_file:
         data = json.load(read_file)
         grafo = data['nodos']
@@ -57,4 +57,4 @@ def profundidad(x,y):
                 grafo.pop(grafo.index(nodo))
         
                 
-profundidad("10","5")
+profundidad("5")
