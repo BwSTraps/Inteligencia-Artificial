@@ -2,7 +2,7 @@
 """
 Created on Fri Nov 13 10:44:15 2020
 
-@author: Cristian
+@author: crist
 """
 
 reina = 4
